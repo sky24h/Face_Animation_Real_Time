@@ -1,0 +1,5 @@
+torch>=1.11.0
+numpy==1.23.5
+PyYAML==5.4.1
+imageio[ffmpeg]
+batch-face
