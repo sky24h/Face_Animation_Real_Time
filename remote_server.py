@@ -13,10 +13,12 @@ from demo_utils import FaceAnimationClass
 
 parser = ArgumentParser()
 parser.add_argument("--source_image", default="./assets/source.jpg", help="path to source image")
-parser.add_argument("--restore_face", default=False, type=bool, help="restore face")
+parser.add_argument("--restore_face", default=False, type=str, help="restore face")
 args = parser.parse_args()
+restore_face = True if args.restore_face == 'True' else False if args.restore_face == 'False' else exit('restore_face must be True or False')
 
-faceanimation = FaceAnimationClass(source_image_path=args.source_image, use_sr=args.restore_face)
+
+faceanimation = FaceAnimationClass(source_image_path=args.source_image, use_sr=restore_face)
 # remote server fps is lower than local camera fps, so we need to increase the frequency of face detection and increase the smooth factor
 faceanimation.detect_interval = 2
 faceanimation.smooth_factor = 0.8

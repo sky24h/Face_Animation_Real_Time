@@ -44,8 +44,9 @@ if __name__ == "__main__":
     parser.add_argument("--driving_video", default=None, help="path to driving video")
     parser.add_argument("--result_video", default="./result_video.mp4", help="path to output")
     parser.add_argument("--output_size", default=512, type=int, help="size of the output video")
-    parser.add_argument("--restore_face", default=False, type=bool, help="restore face")
+    parser.add_argument("--restore_face", default=False, type=str, help="restore face")
     args = parser.parse_args()
+    restore_face = True if args.restore_face == 'True' else False if args.restore_face == 'False' else exit('restore_face must be True or False')
 
     if args.driving_video is None:
         video_path = 0
@@ -54,7 +55,7 @@ if __name__ == "__main__":
         video_path = args.driving_video
         print("Using driving video: {}".format(video_path))
     camera = VideoCamera(video_path=video_path)
-    faceanimation = FaceAnimationClass(source_image_path=args.source_image, use_sr=args.restore_face)
+    faceanimation = FaceAnimationClass(source_image_path=args.source_image, use_sr=restore_face)
 
     frames = [] if args.result_video is not None else None
     frame_count = 0
