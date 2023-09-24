@@ -44,7 +44,7 @@ if __name__ == "__main__":
     parser.add_argument("--driving_video", default=None, help="path to driving video")
     parser.add_argument("--result_video", default="./result_video.mp4", help="path to output")
     parser.add_argument("--output_size", default=512, type=int, help="size of the output video")
-    parser.add_argument("--restore_face", default=False, action="store_true", help="restore face from the result")
+    parser.add_argument("--restore_face", default=False, type=bool, help="restore face")
     args = parser.parse_args()
 
     if args.driving_video is None:

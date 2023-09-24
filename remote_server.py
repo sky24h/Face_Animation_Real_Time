@@ -13,7 +13,7 @@ from demo_utils import FaceAnimationClass
 
 parser = ArgumentParser()
 parser.add_argument("--source_image", default="./assets/source.jpg", help="path to source image")
-parser.add_argument("--restore_face", default=False, action="store_true", help="restore face from the result")
+parser.add_argument("--restore_face", default=False, type=bool, help="restore face")
 args = parser.parse_args()
 
 faceanimation = FaceAnimationClass(source_image_path=args.source_image, use_sr=args.restore_face)
