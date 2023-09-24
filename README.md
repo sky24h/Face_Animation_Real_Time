@@ -20,13 +20,13 @@ Tested on RTX 3090, got 17 FPS without face restoration, and 10 FPS with face re
 ```
 python camera_local.py --source_image ./assets/source.jpg --restore_face False
 ```
-the model output only supports size of 256, but you can change the output size to 512x512 or larger to get a resized output.
+The model output only supports size of 256, but you can change the output size to 512x512 or larger to get a resized output.
 
 ### **2. For input driving video**
 ```
 python camera_local.py --source_image ./assets/source.jpg --restore_face False --driving_video ./assets/driving.mp4 --result_video ./result_video.mp4 --output_size 512
 ```
-
+The driving video does not require any preprocessing, it is valid to use as long as every frame contains a face.
 
 ### **3. For input driving video**
 First you need to bind the port between server and client, for example, using vscode remote ssh like [this](https://code.visualstudio.com/docs/editor/port-forwarding).
