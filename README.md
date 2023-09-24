@@ -1,5 +1,5 @@
 # Face Animation in Real Time
-One-shot face animation using webcam in real time.
+One-shot face animation using webcam, capable of running in real time.
 ## **Examples Results**
 (Driving video | Result video)
 - Original Result without Face Restoration
