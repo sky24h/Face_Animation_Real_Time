@@ -4,7 +4,11 @@ One-shot face animation using webcam in real time.
 (Driving video | Result video)
 - Original Result without Face Restoration
 
+https://github.com/sky24h/Face_Mapping_Real_Time/assets/26270672/231778e3-0f37-42c3-8cb0-cf849b22c8a8
+
 - With Face Restoration
+
+https://github.com/sky24h/Face_Mapping_Real_Time/assets/26270672/323fb958-77b4-444d-9a21-4d0245fb108c
 
 # How to Use
 ### 0. Dependencies
