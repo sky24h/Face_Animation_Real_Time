@@ -28,7 +28,7 @@ python camera_local.py --source_image ./assets/source.jpg --restore_face False -
 ```
 The driving video does not require any preprocessing, it is valid to use as long as every frame contains a face.
 
-### **3. For input driving video**
+### **3. For remote access**
 First you need to bind the port between server and client, for example, using vscode remote ssh like [this](https://code.visualstudio.com/docs/editor/port-forwarding).
 Then run the server side on the remote server, and run the client side on the local machine.
 
