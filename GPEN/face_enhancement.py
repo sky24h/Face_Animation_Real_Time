@@ -26,7 +26,6 @@ def check_ckpts(model, sr_model):
             from gdown import download_folder
             file_id = "1epln5c8HW1QXfVz6444Fe0hG-vRNavi6"
             download_folder(id=file_id, output=ckpts_folder, quiet=False, use_cookies=False)
-            download_folder(id=id, quiet=True, use_cookies=False)
         else:
             print("Checkpoints already downloaded, skipping...")
     except Exception as e:
