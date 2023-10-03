@@ -6,12 +6,10 @@ from argparse import ArgumentParser
 from tqdm import tqdm
 import cv2
 import time
-import dlib
 
 import imageio
 import numpy as np
 from skimage.transform import resize
-from skimage import img_as_ubyte
 import torch
 import torch.nn.functional as F
 
@@ -224,6 +222,7 @@ class FaceAnimationClass:
         checkpoint_path = os.path.join(os.path.expanduser("~"), ".cache/torch/hub/checkpoints/FaceMapping.pth.tar")
         if not os.path.exists(checkpoint_path):
             os.makedirs(os.path.dirname(checkpoint_path), exist_ok=True)
+            from gdown import download
             file_id = "11ZgyjKI5OcB7klcsIdPpCCX38AIX8Soc"
             download(id=file_id, output=checkpoint_path, quiet=False)
         if use_sr:
