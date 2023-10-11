@@ -1,17 +1,12 @@
-import matplotlib
-
-import os, sys
-import yaml
-from argparse import ArgumentParser
-from tqdm import tqdm
+import os
+import sys
 import cv2
-import time
-
+import yaml
 import imageio
 import numpy as np
-from skimage.transform import resize
 import torch
 import torch.nn.functional as F
+from skimage.transform import resize
 
 
 sys.path.append("./face-vid2vid")
@@ -344,6 +339,8 @@ class FaceAnimationClass:
 
 
 # if __name__ == "__main__":
+#     from tqdm import tqdm
+#     import time
 #     faceanimation = FaceAnimationClass(source_image_path="./assets/source.jpg", use_sr=False)
 
 #     video_path = "./assets/driving.mp4"
