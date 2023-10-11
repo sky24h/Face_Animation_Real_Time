@@ -4,3 +4,4 @@ PyYAML==5.4.1
 imageio[ffmpeg]
 batch-face
 gdown
+scikit-image

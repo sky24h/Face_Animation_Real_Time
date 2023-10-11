@@ -1,4 +1,3 @@
-import os
 import io
 import cv2
 import numpy as np
@@ -6,8 +5,7 @@ from PIL import Image
 from argparse import ArgumentParser
 
 
-from fastapi import FastAPI, WebSocket, File, UploadFile
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, WebSocket
 from fastapi.websockets import WebSocketDisconnect
 from demo_utils import FaceAnimationClass
 
