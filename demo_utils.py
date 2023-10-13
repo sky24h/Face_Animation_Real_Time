@@ -6,7 +6,6 @@ import imageio
 import numpy as np
 import torch
 import torch.nn.functional as F
-from skimage.transform import resize
 
 
 sys.path.append("./face-vid2vid")
@@ -229,8 +228,8 @@ class FaceAnimationClass:
 
         # load checkpoints
         self.generator, self.kp_detector, self.he_estimator = load_checkpoints(config_path=config_path, checkpoint_path=checkpoint_path)
-        source_image = imageio.imread(source_image_path)
-        source_image = resize(source_image, (256, 256))[..., :3]
+        source_image = cv2.cvtColor(cv2.imread(source_image_path), cv2.COLOR_RGB2BGR).astype(np.float32) / 255.
+        source_image = cv2.resize(source_image, (256, 256), interpolation=cv2.INTER_AREA)
         source = torch.tensor(source_image[np.newaxis].astype(np.float32)).permute(0, 3, 1, 2)
         self.source = source.cuda()
 
