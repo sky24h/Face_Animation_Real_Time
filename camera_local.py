@@ -30,7 +30,7 @@ class VideoCamera(object):
 
 def process_frame(image, ScreenSize=512):
     face, result = faceanimation.inference(image)
-    if face.shape[1] != ScreenSize:
+    if face.shape[1] != ScreenSize or face.shape[0] != ScreenSize:
         face = cv2.resize(face, (ScreenSize, ScreenSize))
     if result.shape[0] != ScreenSize or result.shape[1] != ScreenSize:
         result = cv2.resize(result, (ScreenSize, ScreenSize))
@@ -50,6 +50,8 @@ if __name__ == "__main__":
     if args.driving_video is None:
         video_path = 0
         print("Using webcam")
+        # create window for displaying results
+        cv2.namedWindow("Face Animation", cv2.WINDOW_NORMAL)
     else:
         video_path = args.driving_video
         print("Using driving video: {}".format(video_path))
@@ -73,6 +75,10 @@ if __name__ == "__main__":
                 print("FPS: {:.2f}".format(1 / np.mean(times)))
                 times = []
             frames.append(res) if args.result_video is not None else None
+            # display results if using webcam
+            cv2.imshow("Face Animation", res) if args.driving_video is None else None
+            if cv2.waitKey(1) & 0xFF == ord("q"):
+                break
         except Exception as e:
             print(e)
             raise e
