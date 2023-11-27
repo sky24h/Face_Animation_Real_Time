@@ -76,9 +76,10 @@ if __name__ == "__main__":
                 times = []
             frames.append(res) if args.result_video is not None else None
             # display results if using webcam
-            cv2.imshow("Face Animation", res) if args.driving_video is None else None
-            if cv2.waitKey(1) & 0xFF == ord("q"):
-                break
+            if args.driving_video is None:
+                cv2.imshow("Face Animation", res)
+                if cv2.waitKey(1) & 0xFF == ord("q"):
+                    break
         except Exception as e:
             print(e)
             raise e
