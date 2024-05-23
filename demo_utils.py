@@ -234,7 +234,7 @@ class FaceAnimationClass:
         self.source = source.cuda()
 
         # initilize face detectors
-        self.face_detector = RetinaFace()
+        self.face_detector = RetinaFace(gpu_id=0) if torch.cuda.is_available() else RetinaFace(gpu_id=-1)
         self.detect_interval = 8
         self.smooth_factor = 0.2
 
